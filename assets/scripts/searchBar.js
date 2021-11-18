@@ -1,5 +1,7 @@
 import STORE from "./store.js";
 import { ProductsService } from "./services/products_service.js";
+import ProductCard from "./productCard.js";
+import ErrorMessage from "./errorMessage.js";
 
 export default function SearchBar() {
   this.parentElement = document.querySelector(".js-header");
@@ -19,6 +21,20 @@ export default function SearchBar() {
   };
 }
 
+SearchBar.prototype.generateProductCards = function (parentSelector) {
+  const container = document.querySelector(parentSelector);
+  const productCards = STORE.products.map((productData) => {
+    return new ProductCard(productData);
+  });
+  container.innerHTML = productCards.join("");
+  return productCards;
+};
+
+SearchBar.prototype.handleNotFound = function (parentSelector) {
+  const container = document.querySelector(parentSelector);
+  container.innerHTML = new ErrorMessage();
+};
+
 SearchBar.prototype.handleSearch = function () {
   const searchButton = document.querySelector(".search-bar_submit");
   const searchBar = document.getElementById("searchBar");
@@ -32,9 +48,9 @@ SearchBar.prototype.handleSearch = function () {
           searchBar.value
         );
         STORE.products = productsList;
-        console.log(STORE.products);
+        this.generateProductCards(".js-products_list");
       } catch (e) {
-        alert(e.message);
+        this.handleNotFound(".js-products_list");
       }
     }
   });
