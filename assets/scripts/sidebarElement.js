@@ -3,7 +3,7 @@ export default function SidebarElement(categoryData) {
   this.parentElement = document.querySelector(".js-sidebar");
   this.toString = function () {
     return `
-      <li>${this.data.name}</li>
+      <li id="js-category">${this.data.name}</li>
     `;
   };
 }
