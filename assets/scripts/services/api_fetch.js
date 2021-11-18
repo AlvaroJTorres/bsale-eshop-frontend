@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://bsale-backend-test.herokuapp.com";
 
 async function apiFetch(...args) {
   const response = await fetch(...args);
