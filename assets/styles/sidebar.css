@@ -1,7 +1,10 @@
+.sidebar {
+  padding: 10px;
+}
+
 .sidebar ul {
   list-style: none;
   margin: 0;
-  padding: 0 1em;
   height: 54vh;
   overflow-y: auto;
 }
