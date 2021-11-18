@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.container p {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}

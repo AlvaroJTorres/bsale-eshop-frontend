@@ -1,8 +1,9 @@
 export default function ErrorMessage() {
   this.toString = function () {
     return `
-    <div class="product_card">
-      <h1>Esa categoría no existe, favor de ingresar una de la lista</h1>         
+    <div class="container">
+      <p>Esa categoría no se encuentra disponible, favor de ingresar una de la lista</p>
+      <p>Gracias!</p>         
     </div>
     `;
   };
