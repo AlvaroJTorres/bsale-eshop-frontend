@@ -44,9 +44,8 @@ SearchBar.prototype.handleSearch = function () {
       e.preventDefault();
       try {
         const productsService = new ProductsService();
-        const productsList = await productsService.loadSearchProducts(
-          searchBar.value
-        );
+        const query = searchBar.value.toLowerCase().trim();
+        const productsList = await productsService.loadSearchProducts(query);
         STORE.products = productsList;
         this.generateProductCards(".js-products_list");
       } catch (e) {
