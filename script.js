@@ -1,8 +1,8 @@
-import { ProductsService } from "./assets/scripts/services/products_service.js";
+import SearchBar from "./assets/scripts/searchBar.js";
 
 async function init() {
-  const productList = new ProductsService();
-  const data = await productList.loadSearchProducts("bebida energetica");
-  console.log(data);
+  const searchBar = new SearchBar();
+  searchBar.render();
 }
+
 init();
