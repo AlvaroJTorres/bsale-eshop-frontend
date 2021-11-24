@@ -8,6 +8,14 @@ export function ProductsService() {
   return ProductsService.instance;
 }
 
+ProductsService.prototype.loadProducts = () =>
+  apiFetch(`${BASE_URL}/products`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
 ProductsService.prototype.loadSearchProducts = (query) =>
   apiFetch(`${BASE_URL}/products/search?searchTerm=${query}`, {
     method: "GET",
