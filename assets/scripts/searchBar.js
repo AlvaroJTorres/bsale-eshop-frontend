@@ -8,12 +8,12 @@ export default function SearchBar() {
   this.toString = function () {
     return `
       <h1 class="header_title">Bsale Test</h1>
-      <div class="search-bar">
+      <form class="search-bar">
         <input type="text" name="searchBar" id="searchBar" placeholder="Look for a product..."/>
-        <div class="search-bar_submit">
+        <button class="search-bar_submit">
           <i class="fas fa-search"></i>
-        </div>
-      </div>
+        </button>
+      </form>
       <div class="cart">
         <i class="fas fa-shopping-cart"></i>
       </div>
@@ -22,23 +22,21 @@ export default function SearchBar() {
 }
 
 SearchBar.prototype.handleSearch = function () {
-  const searchButton = document.querySelector(".search-bar_submit");
+  const form = document.querySelector(".search-bar");
   const searchBar = document.getElementById("searchBar");
 
-  searchButton.addEventListener("click", async (e) => {
-    if (searchButton) {
-      e.preventDefault();
-      try {
-        const productsService = new ProductsService();
-        const query = searchBar.value.toUpperCase().trim();
-        const productsList = await productsService.loadSearchProducts(query);
-        STORE.products = productsList;
-        STORE.products.length > 0
-          ? generateProductCards(".js-products_list")
-          : handleNotFound(".js-products_list");
-      } catch (e) {
-        alert(e);
-      }
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    try {
+      const productsService = new ProductsService();
+      const query = searchBar.value.toUpperCase().trim();
+      const productsList = await productsService.loadSearchProducts(query);
+      STORE.products = productsList;
+      STORE.products.length > 0
+        ? generateProductCards(".js-products_list")
+        : handleNotFound(".js-products_list");
+    } catch (e) {
+      alert(e);
     }
   });
 };
