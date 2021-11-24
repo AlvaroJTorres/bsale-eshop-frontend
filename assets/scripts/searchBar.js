@@ -44,12 +44,14 @@ SearchBar.prototype.handleSearch = function () {
       e.preventDefault();
       try {
         const productsService = new ProductsService();
-        const query = searchBar.value.toLowerCase().trim();
+        const query = searchBar.value.toUpperCase().trim();
         const productsList = await productsService.loadSearchProducts(query);
         STORE.products = productsList;
-        this.generateProductCards(".js-products_list");
+        STORE.products.length > 0
+          ? this.generateProductCards(".js-products_list")
+          : this.handleNotFound(".js-products_list");
       } catch (e) {
-        this.handleNotFound(".js-products_list");
+        alert(e);
       }
     }
   });
