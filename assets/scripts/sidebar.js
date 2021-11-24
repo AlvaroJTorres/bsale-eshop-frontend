@@ -8,7 +8,7 @@ export default function Sidebar() {
   this.parentElement = document.querySelector(".js-sidebar");
   this.toString = function () {
     return `
-      <h1>Categorias:</h1>
+      <h1 class="sidebar_title">Categorias:</h1>
       <ul class="js-list"></ul>
     `;
   };

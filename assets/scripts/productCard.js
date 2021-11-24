@@ -4,11 +4,13 @@ export default function ProductCard(productData) {
     return `
     <div class="product_card">
       <div class="product_info">
-        ${
-          this.data.url_image
-            ? `<img src="${this.data.url_image}" alt="${this.data.name}" />`
-            : `<img src="assets/images/imagen-no-disponible.jpg" />`
-        }
+        <div class="product_image">
+          ${
+            this.data.url_image
+              ? `<img src="${this.data.url_image}" alt="${this.data.name}" />`
+              : `<img src="assets/images/imagen-no-disponible.jpg" />`
+          }
+        </div>
         <p class="product_name">${this.data.name}</p>
       </div>
       <div class="product_footer">

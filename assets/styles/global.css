@@ -3,14 +3,17 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Montserrat", sans-serif;
   color: gray;
+  max-width: 100%;
 }
 
 main {
   display: flex;
+  gap: 10px;
+  max-height: 750px;
 }
