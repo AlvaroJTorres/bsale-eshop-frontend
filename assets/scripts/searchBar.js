@@ -9,7 +9,7 @@ export default function SearchBar() {
     return `
       <h1 class="header_title">Bsale Test</h1>
       <div class="search-bar">
-        <input type="text" name="searchBar" id="searchBar" placeholder="Type a category from the list..."/>
+        <input type="text" name="searchBar" id="searchBar" placeholder="Look for a product..."/>
         <div class="search-bar_submit">
           <i class="fas fa-search"></i>
         </div>
