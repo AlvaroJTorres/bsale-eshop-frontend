@@ -1,12 +1,21 @@
 .products_list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: 300px;
   gap: 20px;
   padding: 1.5em;
-  background-color: rgb(209, 207, 207);
   font-size: 20px;
-  overflow: scroll;
+  background-color: rgb(209, 207, 207);
+  overflow-y: scroll;
+}
+
+.products_list::-webkit-scrollbar {
+  display: none;
+}
+
+.products_list {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .product_card {

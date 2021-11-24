@@ -15,5 +15,5 @@ body {
 main {
   display: flex;
   gap: 10px;
-  max-height: 750px;
+  max-height: 800px;
 }
